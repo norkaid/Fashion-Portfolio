@@ -55,7 +55,7 @@ export default function Cursor() {
   return (
     <div aria-hidden className="pointer-events-none fixed inset-0 z-[90]">
       <motion.div
-        className="absolute left-0 top-0 h-[6px] w-[6px] rounded-full bg-espresso"
+        className="absolute left-0 top-0 h-[7px] w-[7px] rounded-full bg-hibiscus"
         style={{ x: sx, y: sy, translateX: "-50%", translateY: "-50%" }}
         animate={{ opacity: hidden || label ? 0 : 1 }}
       />
@@ -66,14 +66,14 @@ export default function Cursor() {
           width: ringSize,
           height: ringSize,
           opacity: hidden ? 0 : 1,
-          backgroundColor: label ? "rgba(247,242,234,0.78)" : "rgba(247,242,234,0)",
-          borderColor: label ? "rgba(184,149,90,0.6)" : "rgba(42,29,22,0.35)",
+          backgroundColor: label ? "rgba(255,247,238,0.82)" : "rgba(247,242,234,0)",
+          borderColor: label ? "rgba(233,162,59,0.9)" : "rgba(194,65,107,0.5)",
           backdropFilter: label ? "blur(6px)" : "blur(0px)",
         }}
         transition={{ type: "spring", stiffness: 260, damping: 26 }}
       >
         <motion.span
-          className="font-serif text-[15px] italic text-espresso"
+          className="font-serif text-[15px] italic text-plum"
           animate={{ opacity: label ? 1 : 0, scale: label ? 1 : 0.6 }}
         >
           {label}

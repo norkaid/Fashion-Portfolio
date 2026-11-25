@@ -5,7 +5,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Plate from "@/components/Plate";
 import { Curtain, MaskLines, Reveal } from "@/components/Reveal";
-import { Dashes } from "@/components/Motifs";
+import { DotWaves } from "@/components/Motifs";
+import Aurora from "@/components/Aurora";
 import { projects, type Project } from "@/content/site";
 
 const silk = [0.22, 1, 0.36, 1] as const;
@@ -40,7 +41,7 @@ function Card({ p, i }: { p: Project; i: number }) {
           {/* tone halo so the image melts into the page */}
           <div
             aria-hidden
-            className="absolute -inset-8 -z-0 rounded-[50%] opacity-70 blur-3xl transition-opacity duration-1000 group-hover:opacity-100"
+            className="absolute -inset-10 -z-0 rounded-[50%] opacity-60 blur-3xl transition-all duration-1000 group-hover:-inset-14 group-hover:opacity-95"
             style={{ background: p.tone }}
           />
           <Curtain className="relative">
@@ -50,11 +51,11 @@ function Card({ p, i }: { p: Project; i: number }) {
                   img={p.cover}
                   className={`${L.aspect} w-full`}
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  wash={`${p.tone}55`}
+                  wash={`${p.tone}1f`}
                 />
               </div>
               {/* hover veil + info */}
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-espresso/55 via-espresso/0 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-plum/75 via-plum/0 to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
               <div className="pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-6 items-end justify-between p-6 opacity-0 transition-all duration-700 ease-silk group-hover:translate-y-0 group-hover:opacity-100">
                 <p className="max-w-xs text-sm leading-relaxed text-ivory/95">{p.summary}</p>
               </div>
@@ -67,25 +68,25 @@ function Card({ p, i }: { p: Project; i: number }) {
 
         <div className="relative mt-6 flex items-start justify-between gap-6">
           <div>
-            <h3 className="font-serif text-4xl font-light leading-none text-espresso md:text-5xl">
+            <h3 className="font-serif text-4xl font-light leading-none text-plum md:text-5xl">
               <span className="inline-block transition-transform duration-700 ease-silk group-hover:translate-x-2">
                 {p.title}
               </span>
             </h3>
-            <p className="mt-2 overflow-hidden font-serif text-lg italic text-clay">
+            <p className="mt-2 overflow-hidden font-serif text-lg italic" style={{ color: p.tone }}>
               <span className="inline-block translate-y-0 transition-transform duration-700 ease-silk md:translate-y-full md:group-hover:translate-y-0">
                 {p.subtitle}
               </span>
             </p>
           </div>
           <div className="shrink-0 pt-2 text-right">
-            <p className="eyebrow text-clay">{p.year}</p>
-            <p className="mt-2 max-w-[11rem] text-[0.7rem] uppercase leading-relaxed tracking-[0.14em] text-earth/70">
+            <p className="eyebrow text-hibiscus">{p.year}</p>
+            <p className="mt-2 max-w-[11rem] text-[0.7rem] uppercase leading-relaxed tracking-[0.14em] text-plum/60">
               {p.category}
             </p>
           </div>
         </div>
-        <div className="mt-4 h-px origin-left scale-x-0 bg-gold/70 transition-transform duration-1000 ease-silk group-hover:scale-x-100" />
+        <div className="mt-4 h-[2px] origin-left scale-x-0 transition-transform duration-1000 ease-silk group-hover:scale-x-100" style={{ background: `linear-gradient(90deg, ${p.tone}, #C9A04E)` }} />
       </Link>
     </motion.div>
   );
@@ -93,21 +94,22 @@ function Card({ p, i }: { p: Project; i: number }) {
 
 export default function Works() {
   return (
-    <section id="work" className="relative bg-ivory py-28 md:py-40" aria-labelledby="work-title">
-      <div className="mx-auto max-w-[1500px] px-5 md:px-10">
+    <section id="work" className="relative overflow-hidden bg-[#FFF7EE] py-28 md:py-40" aria-labelledby="work-title">
+      <Aurora colors={["#F2C14E", "#8FD3C9", "#E89AAE", "#B9A2E0", "#EE8A6B"]} opacity={0.22} />
+      <div className="relative mx-auto max-w-[1500px] px-5 md:px-10">
         <div className="mb-20 grid grid-cols-12 items-end gap-6 md:mb-32">
           <div className="col-span-12 md:col-span-8">
             <Reveal>
-              <p className="eyebrow mb-8 flex items-center gap-4 text-clay">
-                <span className="h-px w-10 bg-gold" /> Portfolio: selected works
+              <p className="eyebrow mb-8 flex items-center gap-4 text-hibiscus">
+                <span className="h-px w-10 bg-gradient-to-r from-hibiscus to-marigold" /> Portfolio: selected works
               </p>
             </Reveal>
             <MaskLines
               as="h2"
-              className="font-serif text-6xl font-light leading-[0.9] text-espresso md:text-[8.5rem]"
+              className="font-serif text-6xl font-light leading-[0.9] text-plum md:text-[8.5rem]"
               lines={[
                 "Selected",
-                <span key="w" className="pl-[12vw] italic text-earth md:pl-[8vw]">
+                <span key="w" className="iridescent pl-[12vw] pr-4 italic md:pl-[8vw]">
                   Works
                 </span>,
               ]}
@@ -117,11 +119,11 @@ export default function Works() {
             </span>
           </div>
           <Reveal delay={0.2} className="col-span-12 md:col-span-4">
-            <p className="text-sm leading-relaxed text-earth/80">
+            <p className="text-sm leading-relaxed text-plum/70">
               Couture, eveningwear, ready-to-wear and research, from croquis to concept. The photographs here are
               temporary references for mood; the descriptions are of my own designs.
             </p>
-            <Dashes className="mt-6 h-8 w-40 opacity-50" />
+            <DotWaves className="mt-6 h-10 w-56" rows={3} />
           </Reveal>
         </div>
 
@@ -133,7 +135,7 @@ export default function Works() {
       </div>
       <motion.div
         aria-hidden
-        className="mx-auto mt-32 h-px max-w-[1500px] bg-gradient-to-r from-transparent via-gold/60 to-transparent"
+        className="relative mx-auto mt-32 h-px max-w-[1500px] bg-gradient-to-r from-transparent via-hibiscus/60 to-transparent"
         initial={{ scaleX: 0 }}
         whileInView={{ scaleX: 1 }}
         viewport={{ once: true }}

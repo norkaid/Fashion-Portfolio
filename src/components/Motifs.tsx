@@ -96,3 +96,30 @@ export function ArchLine({ className = "", color = "#B8955A" }: { className?: st
     </svg>
   );
 }
+
+/** Dotted waves, echoing the dotted-wave backgrounds of the original portfolio. */
+export function DotWaves({
+  className = "",
+  colors = ["#C2416B", "#E9A23B", "#C9A04E", "#E89AAE"],
+  rows = 5,
+}: {
+  className?: string;
+  colors?: string[];
+  rows?: number;
+}) {
+  const dots: React.ReactNode[] = [];
+  for (let r = 0; r < rows; r++) {
+    const amp = 14 + r * 3;
+    const yBase = 30 + r * 26;
+    for (let i = 0; i <= 120; i++) {
+      const x = i * 5;
+      const y = yBase + Math.sin(i / 9 + r * 0.9) * amp;
+      dots.push(<circle key={`${r}-${i}`} cx={x} cy={y} r={r % 2 ? 1.1 : 1.6} fill={colors[r % colors.length]} />);
+    }
+  }
+  return (
+    <svg viewBox="0 0 600 180" preserveAspectRatio="none" className={className} aria-hidden>
+      {dots}
+    </svg>
+  );
+}

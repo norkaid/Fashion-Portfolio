@@ -3,7 +3,8 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Plate from "@/components/Plate";
-import { DotOrbit } from "@/components/Motifs";
+import { DotOrbit, DotWaves } from "@/components/Motifs";
+import Aurora from "@/components/Aurora";
 import { useLoaded } from "@/components/useLoaded";
 import { scrollToTarget } from "@/components/SmoothScroll";
 import { site } from "@/content/site";
@@ -23,7 +24,8 @@ function Letters({ word, delay, italic }: { word: string; delay: number; italic?
       {word.split("").map((ch, i) => (
         <motion.span
           key={i}
-          className="inline-block"
+          className={`inline-block ${italic ? "iridescent pr-[0.04em]" : ""}`}
+          style={italic ? { animationDelay: `-${i * 1.6}s`, backgroundSize: "600% 100%" } : undefined}
           initial={{ y: "110%", opacity: 0 }}
           animate={loaded ? { y: "0%", opacity: 1 } : {}}
           transition={{ duration: 1.4, delay: delay + i * 0.045, ease: silk }}
@@ -54,13 +56,15 @@ export default function Hero() {
       aria-label="Introduction"
     >
       {/* atmosphere */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_65%_40%,#E9D6C8_0%,#EFE3D6_35%,#F7F2EA_75%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(160deg,#FFF6EC_0%,#FCE3D3_40%,#F8D3D6_70%,#EBD9F0_100%)]" />
+      <Aurora colors={["#F2C14E", "#E89AAE", "#8FD3C9", "#C2416B", "#B9A2E0"]} opacity={0.5} />
+      <DotWaves className="pointer-events-none absolute bottom-0 left-0 h-40 w-full opacity-60 md:h-56" />
       <motion.div
         className="absolute -left-24 top-24 h-[34rem] w-[34rem] opacity-40 md:left-[8%]"
         animate={{ rotate: 360 }}
         transition={{ duration: 160, repeat: Infinity, ease: "linear" }}
       >
-        <DotOrbit className="h-full w-full" rings={6} />
+        <DotOrbit className="h-full w-full" rings={6} color="#C2416B" />
       </motion.div>
 
       {/* hero image: feathered into the page */}
@@ -82,7 +86,7 @@ export default function Hero() {
               priority
               sizes="(min-width: 768px) 64vw, 100vw"
               feather="radial"
-              wash="rgba(233,214,200,0.25)"
+              wash="rgba(248,211,214,0.18)"
               className="h-full w-full"
               note={false}
             />
@@ -90,14 +94,14 @@ export default function Hero() {
         </motion.div>
       </motion.div>
       {/* light veil */}
-      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-ivory via-transparent to-transparent md:bg-gradient-to-r md:from-ivory md:via-ivory/30 md:to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#FCE3D3]/90 via-transparent to-transparent md:bg-gradient-to-r md:from-[#FFF6EC]/70 md:via-transparent md:to-transparent" />
 
       <motion.div
         className="relative z-10 mx-auto flex min-h-[100svh] max-w-[1600px] flex-col justify-end px-5 pb-24 pt-[52svh] md:justify-center md:px-10 md:pb-16 md:pt-28"
         style={{ opacity: fade }}
       >
         <motion.p
-          className="eyebrow mb-6 text-clay md:mb-10"
+          className="eyebrow mb-6 text-hibiscus md:mb-10"
           initial={{ opacity: 0, x: -12 }}
           animate={loaded ? { opacity: 1, x: 0 } : {}}
           transition={{ duration: 1.2, delay: 0.2, ease: silk }}
@@ -106,14 +110,14 @@ export default function Hero() {
         </motion.p>
 
         <h1
-          className="font-serif font-light uppercase leading-[0.86] tracking-[0.02em] text-espresso"
+          className="font-serif font-light uppercase leading-[0.86] tracking-[0.02em] text-plum"
           aria-label={site.name}
         >
           <motion.span className="block text-[17vw] md:text-[9.6vw]" style={{ y: line1 }}>
             <Letters word="Donna" delay={0.1} />
           </motion.span>
           <motion.span
-            className="block pl-[10vw] text-[17vw] normal-case text-earth md:pl-[7vw] md:text-[9.6vw]"
+            className="block pl-[10vw] text-[17vw] normal-case md:pl-[7vw] md:text-[9.6vw]"
             style={{ y: line2 }}
           >
             <Letters word="Norkai" delay={0.35} italic />
@@ -129,8 +133,8 @@ export default function Hero() {
           animate={loaded ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.4, delay: 1.2, ease: silk }}
         >
-          <span className="hidden h-px w-16 translate-y-4 bg-gold md:block" aria-hidden />
-          <p className="font-serif text-xl font-light italic leading-snug text-earth md:text-2xl">
+          <span className="hidden h-px w-16 translate-y-4 bg-gradient-to-r from-hibiscus to-marigold md:block" aria-hidden />
+          <p className="font-serif text-xl font-light italic leading-snug text-plum/85 md:text-2xl">
             {site.intro}
           </p>
         </motion.div>
@@ -143,23 +147,23 @@ export default function Hero() {
           const el = document.getElementById("about");
           if (el) scrollToTarget(el);
         }}
-        className="absolute bottom-10 right-10 z-10 hidden flex-col items-center gap-3 text-clay md:flex"
+        className="absolute bottom-10 right-10 z-10 hidden flex-col items-center gap-3 text-plum md:flex"
         initial={{ opacity: 0 }}
         animate={loaded ? { opacity: 1 } : {}}
         transition={{ delay: 1.8, duration: 1 }}
         aria-label="Scroll to About"
       >
         <span className="eyebrow">Scroll</span>
-        <span className="relative h-14 w-px overflow-hidden bg-taupe/30">
+        <span className="relative h-14 w-px overflow-hidden bg-plum/20">
           <motion.span
-            className="absolute left-0 top-0 h-1/2 w-px bg-espresso"
+            className="absolute left-0 top-0 h-1/2 w-px bg-hibiscus"
             animate={{ y: ["-100%", "200%"] }}
             transition={{ duration: 2.2, repeat: Infinity, ease: [0.65, 0, 0.35, 1] }}
           />
         </span>
       </motion.button>
 
-      <p className="absolute bottom-6 left-5 z-10 hidden text-[0.55rem] uppercase tracking-[0.2em] text-clay/70 md:left-10 md:block">
+      <p className="absolute bottom-6 left-5 z-10 hidden text-[0.55rem] uppercase tracking-[0.2em] text-plum/60 md:left-10 md:block">
         Temporary editorial image · to be replaced with my own work
       </p>
     </section>

@@ -4,7 +4,8 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Plate from "@/components/Plate";
 import { MaskLines, Reveal } from "@/components/Reveal";
-import { DotOrbit } from "@/components/Motifs";
+import { DotOrbit, DotWaves } from "@/components/Motifs";
+import Aurora, { KenteBand } from "@/components/Aurora";
 import { site } from "@/content/site";
 
 export default function Contact() {
@@ -28,14 +29,15 @@ export default function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="relative overflow-hidden bg-gradient-to-b from-ivory via-cream to-champagne pb-10 pt-28 md:pt-40"
+      className="relative overflow-hidden bg-[linear-gradient(180deg,#FFF7EE_0%,#FDE1CF_35%,#F8B994_70%,#E07A6B_100%)] pb-10 pt-28 md:pt-40"
       aria-labelledby="contact-title"
     >
-      <div className="mx-auto grid max-w-[1500px] grid-cols-12 gap-y-16 px-5 md:px-10">
+      <Aurora colors={["#F2C14E", "#E89AAE", "#C2416B", "#B9A2E0", "#8FD3C9"]} opacity={0.4} />
+      <div className="relative mx-auto grid max-w-[1500px] grid-cols-12 gap-y-16 px-5 md:px-10">
         {/* closing composition */}
         <div className="relative col-span-12 md:col-span-5 md:col-start-8 md:row-start-1">
           <motion.div className="absolute -left-16 -top-16 h-[120%] w-[120%] opacity-50" style={{ rotate: rot }}>
-            <DotOrbit className="h-full w-full" rings={7} />
+            <DotOrbit className="h-full w-full" rings={7} color="#C2416B" />
           </motion.div>
           <motion.div style={{ y }} className="relative mx-auto w-[78%] md:w-full">
             <div className="arch overflow-hidden">
@@ -50,7 +52,7 @@ export default function Contact() {
                   className="aspect-[3/4] w-full"
                   sizes="(min-width: 768px) 40vw, 78vw"
                   feather="bottom"
-                  wash="rgba(228,211,188,0.4)"
+                  wash="rgba(238,138,107,0.22)"
                 />
               </motion.div>
             </div>
@@ -59,16 +61,16 @@ export default function Contact() {
 
         <div className="col-span-12 md:col-span-7 md:row-start-1 md:pr-10 md:pt-16">
           <Reveal>
-            <p className="eyebrow mb-8 flex items-center gap-4 text-clay">
-              <span className="h-px w-10 bg-gold" /> Contact
+            <p className="eyebrow mb-8 flex items-center gap-4 text-hibiscus">
+              <span className="h-px w-10 bg-gradient-to-r from-hibiscus to-marigold" /> Contact
             </p>
           </Reveal>
           <MaskLines
             as="h2"
-            className="font-serif text-6xl font-light leading-[0.92] text-espresso md:text-[7.4rem]"
+            className="font-serif text-6xl font-light leading-[0.92] text-plum md:text-[7.4rem]"
             lines={[
               "Let's Create",
-              <span key="s" className="italic text-earth">
+              <span key="s" className="iridescent pr-4 italic">
                 Something
               </span>,
               "Beautiful.",
@@ -78,14 +80,14 @@ export default function Contact() {
             Contact
           </span>
           <Reveal delay={0.15} className="mt-10 max-w-lg">
-            <p className="text-[1.02rem] leading-[1.85] text-earth/85">
+            <p className="text-[1.02rem] leading-[1.85] text-plum/80">
               I&apos;m open to creative collaborations, fashion projects, editorial and costume commissions, and
               professional opportunities with studios and houses who care about craft. Write to me and tell me
               what you&apos;re dreaming up.
             </p>
           </Reveal>
 
-          <ul className="mt-14 divide-y divide-taupe/40 border-y border-taupe/40">
+          <ul className="mt-14 divide-y divide-plum/20 border-y border-plum/20">
             {channels.map((c, i) => (
               <Reveal key={c.k} delay={0.1 * i}>
                 <li>
@@ -96,21 +98,21 @@ export default function Contact() {
                       rel={c.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       className="group flex items-baseline justify-between gap-6 py-6"
                     >
-                      <span className="eyebrow w-28 shrink-0 text-clay">{c.k}</span>
-                      <span className="flex-1 break-all font-serif text-2xl font-light text-espresso transition-transform duration-700 ease-silk group-hover:translate-x-3 md:text-3xl">
+                      <span className="eyebrow w-28 shrink-0 text-hibiscus">{c.k}</span>
+                      <span className="flex-1 break-all font-serif text-2xl font-light text-plum transition-transform duration-700 ease-silk group-hover:translate-x-3 md:text-3xl">
                         {c.v}
                       </span>
                       <span
                         aria-hidden
-                        className="font-serif text-2xl text-gold transition-transform duration-700 ease-silk group-hover:-rotate-45"
+                        className="font-serif text-2xl text-hibiscus transition-transform duration-700 ease-silk group-hover:-rotate-45"
                       >
                         →
                       </span>
                     </a>
                   ) : (
                     <div className="flex items-baseline justify-between gap-6 py-6">
-                      <span className="eyebrow w-28 shrink-0 text-clay">{c.k}</span>
-                      <span className="flex-1 font-serif text-2xl font-light italic text-taupe md:text-3xl">{c.v}</span>
+                      <span className="eyebrow w-28 shrink-0 text-hibiscus">{c.k}</span>
+                      <span className="flex-1 font-serif text-2xl font-light italic text-plum/50 md:text-3xl">{c.v}</span>
                     </div>
                   )}
                 </li>
@@ -120,14 +122,16 @@ export default function Contact() {
         </div>
       </div>
 
+      <DotWaves className="pointer-events-none absolute bottom-24 left-0 h-48 w-full opacity-40" colors={["#FFF7EE", "#F2C14E", "#4A1638"]} rows={3} />
       <footer className="relative mx-auto mt-32 max-w-[1500px] px-5 md:px-10">
         <p
           aria-hidden
-          className="select-none text-center font-serif text-[17vw] font-light uppercase leading-none tracking-[0.04em] text-ivory/70"
+          className="select-none text-center font-serif text-[17vw] font-light uppercase leading-none tracking-[0.04em] text-ivory/80"
         >
           Norkai
         </p>
-        <div className="mt-6 flex flex-col items-center justify-between gap-4 border-t border-earth/20 pt-6 text-[0.65rem] uppercase tracking-[0.2em] text-earth/70 md:flex-row">
+        <KenteBand className="mt-6 h-2" />
+        <div className="mt-6 flex flex-col items-center justify-between gap-4 pt-2 text-[0.65rem] uppercase tracking-[0.2em] text-plum/80 md:flex-row">
           <p>© {new Date().getFullYear()} {site.name}</p>
           <p>{site.location}</p>
           <p>Photography marked as temporary is not my design</p>

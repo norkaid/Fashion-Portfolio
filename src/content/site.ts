@@ -103,7 +103,7 @@ export const projects: Project[] = [
     summary:
       "A swim set and sheer organza cover-up built from articulated, sequined 'capiz shell' fabric and opalescent mother-of-pearl tiles, developed in three colourways.",
     cover: T("blue", "Temporary image: a model in an off-shoulder gown against violet", "50% 30%"),
-    tone: "#DCE3DE",
+    tone: "#4FA9B8",
     concept: [
       "Capiz begins with the way light moves across the inside of a shell. Each surface shifts from milk to blue to gold as the body moves.",
       "The look pairs a structured shell-cup bra and tie-side brief with a sheer silk organza robe, so the shine is seen through a veil.",
@@ -139,7 +139,7 @@ export const projects: Project[] = [
     summary:
       "A fluid ivory column gown with a twisted, cut-out waist and an open back, designed to be read from both sides.",
     cover: T("ivory", "Temporary image: ivory tailoring on a pale background", "50% 30%"),
-    tone: "#EFE6D8",
+    tone: "#D9A94E",
     concept: [
       "One strip of fabric twists at the waist and reveals the body on both sides, so the gown is a single unbroken line.",
       "The back is as important as the front. The scoop drops low and the twist repeats, so the gown is designed to be seen walking away.",
@@ -169,7 +169,7 @@ export const projects: Project[] = [
     summary:
       "Sleek column gowns in scarlet and black, held at the waist by a sculpted gold piece that wraps the body from front to back.",
     cover: T("gilded", "Temporary image: a model in a draped red gown in the studio", "50% 30%"),
-    tone: "#E6D2C4",
+    tone: "#C8553D",
     concept: [
       "The idea is armour that feels like jewellery: a gold form that wraps the waist and stays the focus of the gown.",
       "The gowns stay simple, with high necks, clean shoulders and a floor-length column, so the metal draws the eye.",
@@ -199,7 +199,7 @@ export const projects: Project[] = [
     summary:
       "A gown of layered, sweeping drapery in champagne and blush, its silhouette drawn alongside the curve of a perfume bottle.",
     cover: T("soft", "Temporary image: a woman in a soft white puff-sleeve top", "50% 25%"),
-    tone: "#EADBC6",
+    tone: "#EE8A6B",
     concept: [
       "Sketched next to a perfume flacon, this gown copies the bottle's swelling shape and its glow.",
       "Panels of champagne silk fall from the shoulder and trail behind like a vapour.",
@@ -230,7 +230,7 @@ export const projects: Project[] = [
     summary:
       "A boned blush corset over a full, embellished tulle skirt, developed on a board of swatches, references and work-in-progress notes.",
     cover: T("blush", "Temporary image: a pink puff-sleeved dress in a field", "50% 30%"),
-    tone: "#EBD5CC",
+    tone: "#D9668A",
     concept: [
       "Corset boning is left visible, like the veins of a petal, while the skirt opens into scattered embellishment.",
       "Off-the-shoulder ruffles soften the corset's structure at the neckline.",
@@ -261,7 +261,7 @@ export const projects: Project[] = [
     summary:
       "A ready-to-wear set: a poet-sleeve chambray blouse, a corset-waisted denim skirt, technical flats, detail callouts and a five-tone indigo palette.",
     cover: T("denim", "Temporary image: stacked denim in graded indigo", "50% 50%"),
-    tone: "#D9DEE2",
+    tone: "#4C68B0",
     concept: [
       "This look gives denim's workwear history couture construction: a deep corset waist and a flared, panelled skirt.",
       "Full poet sleeves and a notched neckline keep the look light.",
@@ -294,7 +294,7 @@ export const projects: Project[] = [
     summary:
       "A halter gown in a hand-rendered hibiscus print, with a cascading ruffled front panel that opens like a bloom as the wearer walks.",
     cover: T("botanical", "Temporary image: a woman in an embroidered yellow dress", "50% 30%"),
-    tone: "#EADCC4",
+    tone: "#E28A1F",
     concept: [
       "The gown is a garden in motion: the halter neck rises like a stem and the front ruffle falls open like petals.",
       "The back is a clean column with a zip, so the gown is calm from behind and full of movement from the front.",
@@ -325,7 +325,7 @@ export const projects: Project[] = [
     summary:
       "Capstone research: a computer-vision system that breaks a photographed dress into its components, rebuilds an editable 2D sewing pattern and adjusts it to the wearer's own measurements.",
     cover: T("research", "Temporary image: mannequins in a grid of windows, black and white", "50% 50%"),
-    tone: "#E2DED8",
+    tone: "#1F8A6E",
     concept: [
       "Turning a photo of a dress into a usable sewing pattern is slow, manual work that needs pattern-making expertise most designers don't have.",
       "This research proposes a system that segments garment components from an image, rebuilds a 2D pattern, and lets the user edit it against their own measurements, keeping every component in sync.",

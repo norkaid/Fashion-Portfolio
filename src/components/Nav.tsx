@@ -61,7 +61,7 @@ export default function Nav() {
         <div
           className={`transition-[background-color,backdrop-filter,border-color] duration-700 ${
             solid && !open
-              ? "border-b border-taupe/20 bg-ivory/70 backdrop-blur-md"
+              ? "border-b border-rose/30 bg-[#FFF7EE]/75 backdrop-blur-md"
               : "border-b border-transparent"
           }`}
         >
@@ -75,8 +75,8 @@ export default function Nav() {
               className="group flex items-baseline gap-3 text-espresso"
               aria-label="Donna Norkai Omaboe, home"
             >
-              <span className="font-serif text-xl font-light tracking-[0.12em]">D N O</span>
-              <span className="hidden text-[0.62rem] uppercase tracking-luxe text-clay transition-colors group-hover:text-gold sm:inline">
+              <span className="iridescent font-serif text-xl font-normal tracking-[0.12em]">D N O</span>
+              <span className="hidden text-[0.62rem] uppercase tracking-luxe text-plum/70 transition-colors group-hover:text-hibiscus sm:inline">
                 Donna Norkai Omaboe
               </span>
             </Link>
@@ -87,7 +87,7 @@ export default function Nav() {
                   <Link
                     href={l.hash === "top" ? "/" : `/#${l.hash}`}
                     onClick={(e) => go(e, l.hash)}
-                    className="link-underline pb-1 text-[0.7rem] uppercase tracking-wide2 text-espresso/80 transition-colors hover:text-espresso"
+                    className="link-underline pb-1 text-[0.7rem] uppercase tracking-wide2 text-plum/80 transition-colors hover:text-hibiscus"
                   >
                     {l.label}
                   </Link>
@@ -124,13 +124,13 @@ export default function Nav() {
         {open && (
           <motion.div
             id="mobile-menu"
-            className="fixed inset-0 z-[65] flex flex-col justify-between bg-cream px-6 pb-10 pt-28 lg:hidden"
+            className="fixed inset-0 z-[65] flex flex-col justify-between bg-[linear-gradient(160deg,#FFF6EC_0%,#FCE3D3_50%,#F3D6E6_100%)] px-6 pb-10 pt-28 lg:hidden"
             initial={{ clipPath: "inset(0 0 100% 0)" }}
             animate={{ clipPath: "inset(0 0 0% 0)" }}
             exit={{ clipPath: "inset(0 0 100% 0)" }}
             transition={{ duration: 0.9, ease: silk }}
           >
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(184,149,90,0.18),transparent_60%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(242,193,78,0.35),transparent_60%),radial-gradient(ellipse_at_10%_90%,rgba(194,65,107,0.25),transparent_55%)]" />
             <ul className="relative space-y-3">
               {links.map((l, i) => (
                 <li key={l.hash} className="overflow-hidden">
@@ -142,12 +142,12 @@ export default function Nav() {
                     <Link
                       href={l.hash === "top" ? "/" : `/#${l.hash}`}
                       onClick={(e) => go(e, l.hash)}
-                      className="flex items-baseline gap-4 font-serif text-[2.6rem] font-light leading-tight text-espresso"
+                      className="flex items-baseline gap-4 font-serif text-[2.6rem] font-light leading-tight text-plum"
                     >
-                      <span className="font-sans text-[0.65rem] tracking-wide2 text-clay">
+                      <span className="font-sans text-[0.65rem] tracking-wide2 text-hibiscus">
                         0{i + 1}
                       </span>
-                      <span className={i % 2 ? "italic" : ""}>{l.label}</span>
+                      <span className={i % 2 ? "iridescent pr-2 italic" : ""}>{l.label}</span>
                     </Link>
                   </motion.div>
                 </li>

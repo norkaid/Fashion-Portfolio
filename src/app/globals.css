@@ -37,8 +37,8 @@ body {
 }
 
 ::selection {
-  background: var(--champagne);
-  color: var(--espresso);
+  background: #f2c14e;
+  color: #4a1638;
 }
 
 /* Cursor: hide native cursor only when the custom one is active */
@@ -67,10 +67,10 @@ html.has-cursor * {
 
 /* Unified grade so every image sits in one art direction */
 .grade {
-  filter: sepia(0.22) saturate(0.62) contrast(0.95) brightness(1.03);
+  filter: saturate(1.08) contrast(1.02) brightness(1.02);
 }
 .grade-deep {
-  filter: sepia(0.28) saturate(0.6) contrast(1.02) brightness(0.92);
+  filter: saturate(0.95) contrast(1.05) brightness(0.9);
 }
 
 /* Feathered image edges */
@@ -100,7 +100,7 @@ html.has-cursor * {
 
 .hairline {
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(184, 149, 90, 0.7), transparent);
+  background: linear-gradient(to right, transparent, rgba(194, 65, 107, 0.6), transparent);
 }
 
 .link-underline {
@@ -117,7 +117,7 @@ html.has-cursor * {
 }
 
 :focus-visible {
-  outline: 1px solid var(--gold);
+  outline: 2px solid #c2416b;
   outline-offset: 4px;
 }
 
@@ -139,4 +139,54 @@ html.has-cursor * {
   .grain {
     animation: none;
   }
+}
+
+/* ── Ethereal colour ─────────────────────────────────────────── */
+.aurora-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.55;
+  will-change: transform;
+  animation: aurora 24s ease-in-out infinite alternate;
+}
+@keyframes aurora {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  33% { transform: translate3d(8%, -6%, 0) scale(1.12); }
+  66% { transform: translate3d(-6%, 8%, 0) scale(0.94); }
+  100% { transform: translate3d(4%, 4%, 0) scale(1.06); }
+}
+
+/* Shimmering iridescent text for accent words */
+.iridescent {
+  background: linear-gradient(100deg, #c2416b 0%, #e9a23b 28%, #c9a04e 45%, #2f9c9a 68%, #7a5ba6 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 9s ease-in-out infinite alternate;
+}
+.iridescent-light {
+  background: linear-gradient(100deg, #f2c14e 0%, #ee8a6b 30%, #e89aae 55%, #8fd3c9 80%, #f2c14e 100%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 9s ease-in-out infinite alternate;
+}
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+/* Kente-inspired woven band */
+.kente {
+  background-color: #1e2257;
+  background-image:
+    repeating-linear-gradient(90deg,
+      #e9a23b 0 22px, #156b55 22px 30px, #e9a23b 30px 52px, #c2416b 52px 60px,
+      #1e2257 60px 72px, #c9a04e 72px 76px, #1e2257 76px 88px, #c4622d 88px 110px,
+      #f2c14e 110px 114px, #156b55 114px 136px, #c9a04e 136px 140px, #4a1638 140px 156px),
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.12) 0 2px, transparent 2px 6px);
+  background-blend-mode: multiply;
 }
